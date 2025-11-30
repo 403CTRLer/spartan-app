@@ -116,9 +116,6 @@ test.describe('Directory Page', () => {
       await directoryPage.search('NonexistentTerm12345');
       await page.waitForTimeout(500);
 
-      // Should show fewer or no results
-      const filteredCount = await directoryPage.getVisibleSpartansCount();
-
       await directoryPage.clearSearch();
       await page.waitForTimeout(500);
 
@@ -200,8 +197,6 @@ test.describe('Directory Page', () => {
       const totalCount = await directoryPage.getSpartansCount();
 
       if (totalCount > 12) {
-        const firstPageItems = await directoryPage.getVisibleSpartansCount();
-
         // Click next page if available
         const nextButton = directoryPage.nextPageButton;
         if (await nextButton.isVisible()) {

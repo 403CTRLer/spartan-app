@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { clearAuthState, loginAsUser, signupUser, isAuthenticated } from './helpers/auth';
+import { clearAuthState, signupUser, isAuthenticated } from './helpers/auth';
 import { LoginPage, SignupPage } from './helpers/page-objects';
 
 test.describe('Authentication', () => {

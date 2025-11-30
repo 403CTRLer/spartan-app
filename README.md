@@ -8,7 +8,7 @@ A modern frontend application for managing and viewing the TEC Spartans director
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Data Fetching**: TanStack Query (React Query)
-- **Testing**: Jest + React Testing Library
+- **Testing**: Jest + React Testing Library + Playwright (E2E)
 
 ## Features
 
@@ -67,9 +67,33 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Testing
 
+#### Unit Tests
+
 ```bash
 npm test
 ```
+
+#### End-to-End Tests
+
+E2E tests are written using Playwright and test critical user flows including authentication, search, filtering, and pagination.
+
+**Prerequisites**: The development server must be running (or will start automatically).
+
+```bash
+# Run E2E tests in headless mode
+npm run test:e2e
+
+# Run E2E tests with Playwright UI (interactive)
+npm run test:e2e:ui
+
+# Run E2E tests in debug mode
+npm run test:e2e:debug
+```
+
+**Test Structure**:
+- `e2e/auth.spec.ts` - Authentication flows (login, signup, validation, route protection)
+- `e2e/directory.spec.ts` - Directory page functionality (search, filter, pagination)
+- `e2e/helpers/` - Reusable test utilities and page object models
 
 ### Build
 
@@ -101,7 +125,7 @@ This application can be deployed to various platforms. Here are some recommended
 3. Vercel will automatically detect Next.js and configure the build settings
 4. Deploy with one click
 
-**Live Demo**: [View Live Application](https://your-app.vercel.app)
+**Live Demo**: [View Live Application](https://spartan-app-sepia.vercel.app/login)
 
 ### Environment Variables
 
@@ -133,7 +157,10 @@ src/
 | `npm run start` | Start production server |
 | `npm run lint` | Run ESLint |
 | `npm run format:check` | Check code formatting (Prettier) |
-| `npm test` | Run tests |
+| `npm test` | Run unit tests (Jest) |
+| `npm run test:e2e` | Run E2E tests (Playwright) |
+| `npm run test:e2e:ui` | Run E2E tests with UI |
+| `npm run test:e2e:debug` | Run E2E tests in debug mode |
 | `npm run format` | Format code with Prettier |
 
 ## License
